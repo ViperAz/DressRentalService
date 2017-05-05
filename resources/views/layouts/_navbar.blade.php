@@ -51,8 +51,10 @@
 
      </ul>
      <ul class="nav navbar-nav navbar-right top-right">
-         @if (Route::has('login'))
-             @if (Auth::check())
+                                 @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
          
                 <li><a href=""><img src="image/basket.png" alt="" style="height:23px;"></a></li>
                  <li class="dropdown">
@@ -75,10 +77,7 @@
                 </li>
             </ul>
         </li>
-             @else
-                 <li><a href="">Login</a></li>
-                 <li><a href="">Register</a></li>
-             @endif
+
         @endif
      </ul>
     </div><!-- /.navbar-collapse -->
