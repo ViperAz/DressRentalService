@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePromotionItemTable extends Migration
+class CreateRentalProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,22 +14,17 @@ class CreatePromotionItemTable extends Migration
     public function up()
     {
         //
-        Schema::create('promotion_items', function (Blueprint $table) {
-
-            $table->integer('promotion_id')->unsigned();
-            $table->integer('item_id')->unsigned();
-            $table->float('discounted_price', 8, 2);
+        Schema::create('rental_products', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('product_id')->unsigned();
+            $table->integer('day')->unsigned();
+            $table->float('price', 8, 2);
             $table->timestamps();
 
-            $table->foreign('promotion_id')
+            $table->foreign('product_id')
                   ->references('id')
-                  ->on('promotions');
-            $table->foreign('item_id')
-                  ->references('id')
-                  ->on('items');
-
+                  ->on('products');
         });
-
     }
 
     /**
@@ -41,7 +36,7 @@ class CreatePromotionItemTable extends Migration
     {
         //
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('promotion_items');
+        Schema::dropIfExists('rental_products');
         Schema::enableForeignKeyConstraints();
     }
 }

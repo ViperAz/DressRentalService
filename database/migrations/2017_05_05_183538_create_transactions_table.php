@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransactionTable extends Migration
+class CreateTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,30 +15,25 @@ class CreateTransactionTable extends Migration
     {
         //
         Schema::create('transactions', function (Blueprint $table) {
-
             $table->increments('id');
-            $table->datetime('transaction_datetime');
-            $table->string('status');
             $table->integer('user_id')->unsigned();
-            $table->integer('voucher_id')
-                  ->unsigned()
-                  ->nullable();
-            $table->integer('promotion_id')
-                  ->unsigned()
-                  ->nullable();
+            $table->integer('order_detail_id')->unsigned();
+            $table->integer('voucher_id')->unsigned()->nullable();
+            $table->float('total_price', 8, 2);
             
 
+            // $table->timestamps();
+            
 
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users');
+            $table->foreign('order_detail_id')
+                  ->references('id')
+                  ->on('order_details');
             $table->foreign('voucher_id')
                   ->references('id')
                   ->on('vouchers');
-            $table->foreign('promotion_id')
-                  ->references('id')
-                  ->on('promotions');
-
         });
     }
 
@@ -50,8 +45,5 @@ class CreateTransactionTable extends Migration
     public function down()
     {
         //
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('promotion_items');
-        Schema::enableForeignKeyConstraints();
     }
 }

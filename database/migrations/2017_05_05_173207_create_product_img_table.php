@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryTable extends Migration
+class CreateProductImgTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,15 @@ class CreateCategoryTable extends Migration
     public function up()
     {
         //
-        Schema::create('category', function (Blueprint $table) {
-
-            $table->integer('item_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
+        Schema::create('products_img', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('img_url');
+            $table->integer('product_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('item_id')
+            $table->foreign('product_id')
                   ->references('id')
-                  ->on('items');
-            $table->foreign('tag_id')
-                  ->references('id')
-                  ->on('tags');
+                  ->on('products');
         });
     }
 
@@ -38,7 +35,7 @@ class CreateCategoryTable extends Migration
     {
         //
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('category');
+        Schema::dropIfExists('products_img');
         Schema::enableForeignKeyConstraints();
     }
 }
