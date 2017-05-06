@@ -16,7 +16,7 @@
 							<td class="description"></td>
 							<td class="price">Price</td>
 							<td class="quantity">Quantity</td>
-                            <td class="quantity">Day</td>
+                            <td class="Day">Day</td>
 							<td class="total">Total</td>
 							<td></td>
 						</tr>
