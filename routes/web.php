@@ -23,18 +23,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admain', function () {
     return view('admin_main');
 });
-//--------add item page
+//--------------------add item page
 Route::get('/add_item', function () {
     return view('add_item');
 });
 Route::post('/item-create', 'ItemController@store');
-
-//--------------------
-
+//--------------------add voucher page
 Route::get('/add_voucher', function () {
     return view('add_voucher');
 });
-
+Route::post('/voucher-create', 'VoucherController@store');
+//--------------------
 Route::get('/add_promotion', function () {
     return view('add_promotion');
 });

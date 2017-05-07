@@ -26,7 +26,7 @@
 
 </head>
 <body>
-  
+
 @include('layouts._navbar')
 @yield('content')
 <footer id="footer"><!--Footer-->
@@ -200,6 +200,6 @@
 <script type="text/javascript">
     Stripe.setPublishableKey('pk_test_GryUHqXe48kgNc75J2BovmeN');
 </script>
-
+z
 </body>
 </html>
