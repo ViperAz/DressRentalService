@@ -16,4 +16,8 @@ public function category(){
 public function ProductImgs(){
         return this->hasMany('App\ProductImg');
     }
+
+public function RentalProducts(){
+        return this->hasMany('App\RentalProduct');
+    }
 }
