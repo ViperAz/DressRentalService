@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Item;
+use DB;
 
 class ItemController extends Controller
 {
@@ -34,7 +36,14 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name= $request->input('name');
+        $price= $request->input('price');
+        $desc= $request->input('desc');
+        $img_url= $request->input('img_url');
+
+        $data = array('name'=>$name,'price'=>$price,'desc'=>$desc,'img_url'=>$img_url);
+
+        DB::table('items')->insert($data);
     }
 
     /**

@@ -23,10 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admain', function () {
     return view('admin_main');
 });
-
+//--------add item page
 Route::get('/add_item', function () {
     return view('add_item');
 });
+Route::post('/item-create', 'ItemController@store');
+
+//--------------------
 
 Route::get('/add_voucher', function () {
     return view('add_voucher');
