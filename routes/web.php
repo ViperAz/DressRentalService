@@ -11,15 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 
+Route::get('/home', 'HomeController@show');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+ 
 
 Route::get('/cart', function () {
     return view('cart');
 });
+
+
 
