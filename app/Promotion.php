@@ -8,8 +8,9 @@ class Promotion extends Model
 {
     //
     protected $fillable = ['start_date','end_date','price'];
+    public $timestamps = false;
 
     public function RentalProduct(){
-        return this->belongsTo('App\RentalProduct');
+        return  $this->belongsTo('App\RentalProduct');
     }
 }

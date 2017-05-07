@@ -12,22 +12,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
 
         App\Voucher::create([
-            'code' => 'TEST'
-            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00);
-            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00);
+            'code' => 'TEST',
+            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00),
+            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00),
+            'discount_price'=> '20'
             ]);
+            // print('test');
         App\Category::create(['name' => 'Shirt']);
         App\Category::create(['name' => 'Pants']);
         App\Category::create(['name' => 'Shorts']);
         App\Category::create(['name' => 'Skirt']);
         App\Category::create(['name' => 'Dress']);
         App\Category::create(['name' => 'Suit']);
+        // print('test2');
 
         $productShirt = App\Category::where('name','=','Shirt')->first();
-        
+
         if (!is_null($productShirt)){
             $productShirt->products()->saveMany([
                 new App\Product([
@@ -54,7 +56,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $productPants = App\Category::where('name','=','Pants')->first();
-        
+
         if (!is_null($productPants)){
             $productPants->products()->saveMany([
                 new App\Product([
@@ -81,7 +83,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $productShorts = App\Category::where('name','=','Shorts')->first();
-        
+
         if (!is_null($productShorts)){
             $productShorts->products()->saveMany([
                 new App\Product([
@@ -108,7 +110,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $productSkirt = App\Category::where('name','=','Skirt')->first();
-        
+
         if (!is_null($productSkirt)){
             $productSkirt->products()->saveMany([
                 new App\Product([
@@ -135,7 +137,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $productDress = App\Category::where('name','=','Dress')->first();
-        
+
         if (!is_null($productDress)){
             $productDress->products()->saveMany([
                 new App\Product([
@@ -162,7 +164,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $productSuit = App\Category::where('name','=','Suit')->first();
-        
+
         if (!is_null($productSuit)){
             $productSuit
             ->products()->saveMany([
@@ -520,7 +522,7 @@ class DatabaseSeeder extends Seeder
         }
 
 
-        // 
+        //
 
 
         $rentalProductShirt_1 = App\Product::where('name','=','Red T-Shirt')->first();
@@ -802,7 +804,7 @@ class DatabaseSeeder extends Seeder
             ])
             ]);
         }
-        
+
         $rentalProductShort_5 = App\Product::where('name','=','Grey Shorts')->first();
 
         if (!is_null($rentalProductShort_5)){
@@ -824,7 +826,7 @@ class DatabaseSeeder extends Seeder
         }
 
 
-        
+
 
         $rentalProductSkirt_1 = App\Product::where('name','=','Skirt Black')->first();
 
@@ -925,7 +927,7 @@ class DatabaseSeeder extends Seeder
             ])
             ]);
         }
-        
+
 
         $rentalProductDress_1 = App\Product::where('name','=','Blue Dress')->first();
 
@@ -1127,57 +1129,59 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $promotion_1 = App\RentalProduct::where('name','=','White Suit')->first();
-
-        if (!is_null($promotion_1)){
-             $promotion_1
-            ->promotions()->saveMany([
-            new App\Promotion([
-            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00);
-            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00);
-                'price' => '129.00'
-            ])
-            ]);
-        }
-
-        $promotion_2 = App\RentalProduct::where('name','=','Red T-Shirt')->first();
-
-        if (!is_null($promotion_2)){
-             $promotion_2
-            ->promotions()->saveMany([
-            new App\Promotion([
-            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00);
-            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00);
-                'price' => '29.00'
-            ])
-            ]);
-        }
-
-        $promotion_3 = App\RentalProduct::where('name','=','Brown Shorts')->first();
-
-        if (!is_null($promotion_3)){
-             $promotion_3
-            ->promotions()->saveMany([
-            new App\Promotion([
-            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00);
-            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00);
-                'price' => '49.00'
-            ])
-            ]);
-        }
-
-        $promotion_4 = App\RentalProduct::where('name','=','Green trousers')->first();
-
-        if (!is_null($promotion_4)){
-             $promotion_4
-            ->promotions()->saveMany([
-            new App\Promotion([
-            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00);
-            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00);
-                'price' => '49.00'
-            ])
-            ]);
-        }
+        // $promotion_1 = App\Product::where('name','=','White Suit')->first()->value('id');
+        //
+        // $promotion_1 = App\RentalProduct::where('product_id','=',$promotion_1)->first();
+        //
+        // if (!is_null($promotion_1)){
+        //      $promotion_1
+        //     ->promotions()->saveMany([
+        //     new App\Promotion([
+        //     'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00),
+        //     'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00),
+        //     'price' => '129.00'
+        //     ])
+        //     ]);
+        // }
+        //
+        // $promotion_2 = App\RentalProduct::where('name','=','Red T-Shirt')->first();
+        //
+        // if (!is_null($promotion_2)){
+        //      $promotion_2
+        //     ->promotions()->saveMany([
+        //     new App\Promotion([
+        //     'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00),
+        //     'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00),
+        //         'price' => '29.00'
+        //     ])
+        //     ]);
+        // }
+        //
+        // $promotion_3 = App\RentalProduct::where('name','=','Brown Shorts')->first();
+        //
+        // if (!is_null($promotion_3)){
+        //      $promotion_3
+        //     ->promotions()->saveMany([
+        //     new App\Promotion([
+        //     'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00),
+        //     'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00),
+        //         'price' => '49.00'
+        //     ])
+        //     ]);
+        // }
+        //
+        // $promotion_4 = App\RentalProduct::where('name','=','Green trousers')->first();
+        //
+        // if (!is_null($promotion_4)){
+        //      $promotion_4
+        //     ->promotions()->saveMany([
+        //     new App\Promotion([
+        //     'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00),
+        //     'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00),
+        //         'price' => '49.00'
+        //     ])
+        //     ]);
+        // }
 
         // $Promotion = App\Product::where('name','=','White Suit')->first();
 
