@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePromotionTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,10 @@ class CreatePromotionTable extends Migration
     public function up()
     {
         //
-        Schema::create('promotions', function (Blueprint $table) {
-
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->dateTime('start_datetime');
-            $table->dateTime('end_datetime');
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +29,6 @@ class CreatePromotionTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('promotions');
+        Schema::dropIfExists('categories');
     }
 }
