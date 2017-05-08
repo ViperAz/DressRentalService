@@ -7,7 +7,7 @@ use App\Item;
 use DB;
 
 
-class ItemController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,12 +38,14 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $name= $request->input('name');
-        $category_id= $request->input('category_id');
+        $category= $request->input('category');
         $desc= $request->input('desc');
 
-        $data = array('name'=>$name,'category_id'=>$category_id,'desc'=>$desc);
+        $data = array('name'=>$name,'category_id'=>$category,'desc'=>$desc);
 
         DB::table('products')->insert($data);
+
+        return view('admin_main');
     }
 
     /**

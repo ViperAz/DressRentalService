@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Item;
 use DB;
 
-
-class ItemController extends Controller
+class RentalProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,13 +35,19 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $name= $request->input('name');
-        $category_id= $request->input('category_id');
-        $desc= $request->input('desc');
+      $product_id= $request->input('product_id');
+      $one_day_price= $request->input('one_day_price');
+      $three_day_price= $request->input('three_day_price');
+      $five_day_price= $request->input('five_day_price');
 
-        $data = array('name'=>$name,'category_id'=>$category_id,'desc'=>$desc);
+      $data = array('product_id'=>$product_id,'day'=>'1','price'=>$one_day_price);
+      DB::table('rental_products')->insert($data);
+      $data2 = array('product_id'=>$product_id,'day'=>'3','price'=>$three_day_price);
+      DB::table('rental_products')->insert($data2);
+      $data3 = array('product_id'=>$product_id,'day'=>'5','price'=>$five_day_price);
+      DB::table('rental_products')->insert($data3);
 
-        DB::table('products')->insert($data);
+      return view('admin_main');
     }
 
     /**

@@ -8,49 +8,49 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                      <form class="form-horizontal" action='/item-create' method="post">
+                      <form class="form-horizontal" action='/rental_product-create ' method="post">
                         <fieldset>
                             <div id="legend">
-                              <legend class="">Add Item</legend>
+                              <legend class="">Add rental Product</legend>
                             </div>
 
                             <div class="control-group">
                               {{ csrf_field() }}
                               <!-- item name -->
-                              <label class="control-label"  for="name">Item Name</label>
+                              <label class="control-label"  for="product_id">product id</label>
                               <div class="controls">
-                                <input type="text" id="name" name="name" placeholder="" class="input-xlarge">
+                                <input type="text" id="product_id" name="product_id" placeholder="" class="form-control">
                                 <p class="help-block">Item name can contain any letters or numbers</p>
                               </div>
                             </div>
 
                             <div class="control-group">
-                              <!-- item price -->
-                              <label class="control-label" for="category_id">category</label>
-                              <div class="controls">
-                                <input type="text" id="category_id" name="category_id" placeholder="" class="input-xlarge"> $
-                                <p class="help-block">price of item </p>
-                              </div>
-                            </div>
-
-                            <div class="control-group">
                               <!-- item description -->
-                              <label class="control-label" for="desc">Description</label>
+                              <label class="control-label" for="one_day_price">1 day price</label>
                               <div class="controls">
-                                <input type="text" id="desc" name="desc" placeholder="" class="input-xxlarge">
+                                <input type="text" id="one_day_price" name="one_day_price" placeholder="" class="form-control">
                                 <p class="help-block">item description</p>
                               </div>
                             </div>
 
                             <div class="control-group">
-                              <!-- item image -->
-                              <label class="control-label" for="img_url">Image</label>
+                              <!-- item description -->
+                              <label class="control-label" for="three_day_price">3 day price</label>
                               <div class="controls">
-                                <input type="text" id="img_url" name="img_url" placeholder="" class="input-xxlarge">
-                                <p class="help-block">Url of Image </p>
+                                <input type="text" id="three_day_price" name="three_day_price" placeholder="" class="form-control">
+                                <p class="help-block">item description</p>
                               </div>
                             </div>
-                            <br>
+
+                            <div class="control-group">
+                              <!-- item description -->
+                              <label class="control-label" for="five_day_price">5 day price</label>
+                              <div class="controls">
+                                <input type="text" id="five_day_price" name="five_day_price" placeholder="" class="form-control">
+                                <p class="help-block">item description</p>
+                              </div>
+                            </div>
+
 
                             <div class="control-group">
                               <!-- Button -->

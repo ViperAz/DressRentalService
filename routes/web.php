@@ -28,6 +28,16 @@ Route::get('/add_item', function () {
     return view('add_item');
 });
 Route::post('/item-create', 'ItemController@store');
+//--------------------add product page
+Route::get('/add_product', function () {
+    return view('add_product');
+});
+Route::post('/product-create', 'ProductController@store');
+//--------------------add rental product page
+Route::get('/add_rental_product', function () {
+    return view('add_rental_product');
+});
+Route::post('/rental_product-create', 'RentalProductController@store');
 //--------------------add voucher page
 Route::get('/add_voucher', function () {
     return view('add_voucher');

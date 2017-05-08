@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class VoucherController extends Controller
 {
@@ -36,10 +37,11 @@ class VoucherController extends Controller
     {
       //['code','start_datetime','end_datetime','discounted_price'];
       $code= $request->input('code');
-      $start_datetime= $request->input('start_datetime');
-      $end_datetime= $request->input('end_datetime');
+      $discount_price->input('discount_price');
+      $start_date= $request->input('start_date');
+      $end_date= $request->input('end_date');
 
-      $data = array('code'=>$code,'$start_datetime'=>$$start_datetime,'end_datetime'=>$end_datetime);
+      $data = array('code'=>$code,'discount_price'=>$discount_price,'start_date'=>$start_date,'end_date'=>$end_date);
 
       DB::table('vouchers')->insert($data);
     }

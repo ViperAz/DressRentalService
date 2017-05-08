@@ -16,45 +16,44 @@
 
                             <div class="control-group">
                               <!-- E-mail -->
-                              <label class="control-label" for="voucherCode">Voucher Code</label>
+                              <label class="control-label" for="code">Voucher Code</label>
                               <div class="controls">
-                                <input type="text" id="voucherCode" name="voucherCode" placeholder="" class="input-xlarge">
+                                <input type="text" id="code" name="code" placeholder="" class="input-xlarge">
                                 <p class="help-block"> Voucher Code </p>
                               </div>
                             </div>
 
                             <div class="control-group">
                               <!-- E-mail -->
-                              <label class="control-label" for="discountPercent">Discount Percentage</label>
+                              <label class="control-label" for="discount_price">Discount price</label>
                               <div class="controls">
-                                <input type="text" id="discountPercent" name="discountPercent" placeholder="" class="input-xlarge">
+                                <input type="text" id="discount_price" name="discount_price" placeholder="" class="input-xlarge">
                                 <p class="help-block"> Percentage of Discount </p>
                               </div>
                             </div>
 
                             <div class="control-group">
-                              <label class="control-label" for="start">Start Datetime</label>
-                              <div class='input-group date'>
-                              <input type='text' class="form-control" data-provide="datepicker" name="start"/>
-                                <span class="input-group-addon">
-                                  <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+                              <!-- E-mail -->
+                              <label class="control-label" for="start_date">Start</label>
+                              <div class="controls">
+                                <input type="date" id="voucherCode" name="start_date" placeholder="" class="input-xlarge">
+                                <input type="time" id="voucherCode" name="start_time" placeholder="" class="input-xlarge">
+                                <p class="help-block"> Voucher Code </p>
                               </div>
                             </div>
 
                             <div class="control-group">
-                              <label class="control-label" for="end">End Datetime</label>
-                              <div class='input-group date'>
-                              <input type='text' class="form-control" data-provide="datepicker" name="end"/>
-                                <span class="input-group-addon">
-                                  <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+                              <!-- E-mail -->
+                              <label class="control-label" for="end_date">end</label>
+                              <div class="controls">
+                                <input type="date" id="voucherCode" name="end_date" placeholder="" class="input-xlarge">
+                                <input type="time" id="voucherCode" name="end_time" placeholder="" class="input-xlarge">
+                                <p class="help-block"> Voucher Code </p>
                               </div>
                             </div>
-                            <br>
 
-                            <div class="control-group">
-                              <!-- type -->
+                            <!-- <div class="control-group">
+                               type
                               <label class="control-label" for="voucherType">Voucher Type</label>
                               <div class="controls">
                                 <div class="radio">
@@ -65,12 +64,12 @@
                                 </div>
                               </div>
                               <br>
-                            </div>
+                            </div> -->
 
                             <div class="control-group">
                               <!-- Button -->
                               <div class="controls">
-                                <button class="btn btn-success">Add Item</button>
+                                <button class="btn btn-success">Add Voucher</button>
                               </div>
                             </div>
                           </fieldset>
