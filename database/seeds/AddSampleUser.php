@@ -46,8 +46,20 @@ class AddSampleUser extends Seeder
     ]);
 
     // 3. Attach a role to the user object / assign a role to a user
-    $admin->attachRole($adminRole);
-    $moderator->attachRole($employeeRole);
-    $member->attachRole($memberRole);
+    // $admin->attachRole($adminRole);
+    // $moderator->attachRole($employeeRole);
+    // $member->attachRole($memberRole);
+    DB::table('role_user')->insert([
+            'role_id' => 1,
+            'user_id' => 1,
+        ]);
+    DB::table('role_user')->insert([
+            'role_id' => 2,
+            'user_id' => 2,
+        ]);
+    DB::table('role_user')->insert([
+            'role_id' => 3,
+            'user_id' => 3,
+        ]);
     }
 }
