@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\Builder;
+use Auth;
 
-class LoginController extends Controller
+class CartController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,19 +26,20 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $name = Auth::user()->name;
+        $user_id = DB::table('users')->where('name', $name)->value('id');
+        $data = DB::table('order_details')->where('id', $user_id)->get();
+        return view('cart',['data' => $data]);
     }
 }

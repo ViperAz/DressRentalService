@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+use HttpOz\Roles\Traits\HasRole;
+use HttpOz\Roles\Contracts\HasRole as HasRoleContract;
+
+class User extends Authenticatable implements HasRoleContract
 {
-    use Notifiable;
+    use Notifiable, HasRole;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address','birthdate'
+        'name', 'email', 'Address', 'birthdate', 'password',
     ];
 
     /**

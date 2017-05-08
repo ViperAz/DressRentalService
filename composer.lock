@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbfc7d932af91b0f5304c85430c278c8",
+    "content-hash": "6936b3563feb09990240c458f6c4e406",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -147,6 +147,54 @@
                 "parser"
             ],
             "time": "2017-03-29T16:04:15+00:00"
+        },
+        {
+            "name": "httpoz/roles",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpoz/roles.git",
+                "reference": "6b5f047dd7f2e7a08fc2bf92e5045433052e2798"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpoz/roles/zipball/6b5f047dd7f2e7a08fc2bf92e5045433052e2798",
+                "reference": "6b5f047dd7f2e7a08fc2bf92e5045433052e2798",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpOz\\Roles\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Mwanandimai",
+                    "email": "oscar.mwana@gmail.com",
+                    "role": "Architect"
+                }
+            ],
+            "description": "Powerful package for handling roles and permissions in Laravel 5.3.",
+            "homepage": "https://github.com/httpoz/roles",
+            "keywords": [
+                "acl",
+                "httpoz",
+                "illuminate",
+                "laravel",
+                "permissions",
+                "roles"
+            ],
+            "time": "2017-05-01T13:35:08+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
