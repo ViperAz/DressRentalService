@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('title', 'add voucher page')
 
@@ -15,14 +15,26 @@
                               <legend class="">Add Promotion</legend>
                             </div>
 
-                            <div class="control-group">
+                            <!-- <div class="control-group">
                               {{ csrf_field() }}
-                              <!-- E-mail -->
+                               E-mail
                               <label class="control-label" for="rental_product_id">Rental Product ID</label>
                               <div class="controls">
                                 <input type="text" id="rental_product_id" name="rental_product_id" placeholder="" class="input-xlarge" >
                                 <p class="help-block"> Voucher Code </p>
                               </div>
+                            </div> -->
+
+                            <div class="control-group">
+                              {{ csrf_field() }}
+                              <label for="product_id">Item name:</label>
+
+                              <select class="selectpicker" id="product_id" name="product_id">
+                                @foreach($data as $d)
+                                <option value="{{$d->id}}">{{$d->name}}</option>
+                              @endforeach
+                              </select>
+                              <p class="help-block">category of product</p>
                             </div>
 
                             <div class="control-group">

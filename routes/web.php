@@ -43,9 +43,15 @@ Route::get('/add_voucher', function () {
     return view('add_voucher');
 });
 Route::post('/voucher-create', 'VoucherController@store');
-//--------------------
-Route::get('/add_promotion', function () {
-    return view('add_promotion');
-});
+//--------------------add voucher page
+Route::get('/add_promotion','PromotionController@index');
+
 Route::post('/promotion-create', 'PromotionController@store');
+//-------------------edit product page
+Route::get('/edit_product','ProductController@index');
+
+Route::post('/product-edit', 'ProductController@store');
+
+
+
 // [][][]---------- Korn part end -----------------------[][][]

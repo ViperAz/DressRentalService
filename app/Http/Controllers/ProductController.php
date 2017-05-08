@@ -16,8 +16,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('products')->get();
+        return view('edit_product', [
+          'data' => $data
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -45,7 +49,22 @@ class ProductController extends Controller
 
         DB::table('products')->insert($data);
 
-        return view('admin_main');
+        $product_id = DB::table('products')->where('name', $name)->value('id');
+
+        $one_day_price= $request->input('one_day_price');
+        $three_day_price= $request->input('three_day_price');
+        $five_day_price= $request->input('five_day_price');
+
+        $data = array('product_id'=>$product_id,'day'=>'1','price'=>$one_day_price);
+        DB::table('rental_products')->insert($data);
+
+        $data2 = array('product_id'=>$product_id,'day'=>'3','price'=>$three_day_price);
+        DB::table('rental_products')->insert($data2);
+
+        $data3 = array('product_id'=>$product_id,'day'=>'5','price'=>$five_day_price);
+        DB::table('rental_products')->insert($data3);
+
+        // return view('admin_main');
     }
 
     /**
