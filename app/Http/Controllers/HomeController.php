@@ -89,11 +89,30 @@ class HomeController extends Controller
                             'controller' => $this
                             ]);
     }
-    public function showDetail($id)
-    {     
-       $product = DB::table('products')
-            ->where('products.id', '=' ,$id)
+    public  function addToCart(Request $r){
+        $item = DB::table('products')
             ->get();
-        return $product;
+        $data = DB::table('products')
+            ->join('rental_products','products.id','=','rental_products.product_id')
+            ->join('products_img','products.id','=','products_img.product_id') 
+            ->select('products.*', 'rental_products.price','rental_products.day','products_img.img_url')
+            ->get();
+        
+        $rental = DB::table('rental_products')
+            ->get();
+            
+        $promotions = DB::table('promotions')
+            ->join('rental_products','promotions.rental_product','=','rental_products.id')
+            ->join('products','rental_products.product_id','=','products.id')
+            ->join('products_img','products.id','=','products_img.product_id') 
+            ->select('promotions.*','products_img.img_url','rental_products.product_id','products.name','products.desc')
+            ->get();
+        return view('home', ['data' => $data,
+                             'rental' => $rental,
+
+                             'item' => $item,
+                             'promotions' => $promotions,
+                            'controller' => $this
+                            ]);
     }
 }

@@ -300,8 +300,9 @@
   </div>
 </div>
     <!-- Modal -->
-    <form class="" action="home.html" method="post">
+    <form class="" action="/addToCart" method="post">
          <!-- Modal -->
+        <input type='hidden' name='_token' value="{{ csrf_token()}}">
                         <div class="modal fade" id="myModal" role="dialog">
                           <div class="modal-dialog">
 
@@ -399,7 +400,7 @@
               </div>
                             </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default get"> Add to cart</button>
+                            <button type="submit" class="btn btn-default get"> Add to cart</button>
                           </div>
                         </div>     
                       
@@ -454,7 +455,7 @@
                         html += '<option value="'+array[{{$r->id}}]+'">'+'{{$r->day}}'+'days :: ฿'+array[{{$r->id}}]+'</option>'
                         }
                      else if (id == '{{$r->product_id}}'){
-                        html += '<option value="'+'{{$r->price}}'+'">'+'{{$r->day}}'+'days :: ฿'+'{{$r->price}}'+'</option>'}
+                        html += '<option value="{{$r->price}}'+'">'+'{{$r->day}}'+'days :: ฿'+'{{$r->price}}'+'</option>'}
           
                     @endforeach
                     html += '</optgroup></select>';

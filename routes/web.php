@@ -15,11 +15,11 @@
 //    return view('home');
 //});
 
-Route::get('/home', 'HomeController@show');
+Route::get('/', 'HomeController@show');
 Auth::routes();
 
  
-
+Route::post('/addToCart','HomeController@addToCart');
 Route::get('/cart', function () {
     return view('cart');
 });
