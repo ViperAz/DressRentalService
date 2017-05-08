@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
 use Auth;
 
-class ProfileController extends Controller
+class CartController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +37,8 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile');
+        $data = DB::table('order_details')->get();
+        // $total = $data->price*$data->quantity;
+        return view('cart',['data' => $data]);
     }
 }
