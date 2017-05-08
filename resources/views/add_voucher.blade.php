@@ -25,13 +25,13 @@
                               </div>
                             </div>
 
-                            
+
                             <div class="control-group">
                               <!-- E-mail -->
                               <label class="control-label" for="discount_price">Discount price</label>
                               <div class="controls">
                                 <input type="text" id="discount_price" name="discount_price" placeholder="" class="input-xlarge">
-                                <p class="help-block"> Percentage of Discount </p>
+                                <p class="help-block">Discount price</p>
                               </div>
                             </div>
 
@@ -40,7 +40,7 @@
                               <label class="control-label" for="start_date">Start</label>
                               <div class="controls">
                                 <input type="date" id="voucherCode" name="start_date" placeholder="" class="input-xlarge">
-                                <p class="help-block"> Voucher Code </p>
+                                <p class="help-block">Start Date</p>
                               </div>
                             </div>
 
@@ -49,7 +49,7 @@
                               <label class="control-label" for="end_date">end</label>
                               <div class="controls">
                                 <input type="date" id="voucherCode" name="end_date" placeholder="" class="input-xlarge">
-                                <p class="help-block"> Voucher Code </p>
+                                <p class="help-block">End Date</p>
                               </div>
                             </div>
 
