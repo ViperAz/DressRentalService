@@ -11,23 +11,23 @@
               {{ csrf_field() }}
 
               <div class="form-group">
-                  <label for="email" class="col-md-4 control-label">Name</label>
-
+                  <label for="name" class="col-md-4 control-label">Name</label>
+                    {{ Auth::user()->name }}
               </div>
 
               <div class="form-group">
-                  <label for="email" class="col-md-4 control-label">Date of Birth</label>
-
+                  <label for="birthdate" class="col-md-4 control-label">Date of Birth</label>
+                    {{ Auth::user()->birthdate }}
               </div>
 
               <div class="form-group">
-                  <label for="email" class="col-md-4 control-label">Address</label>
-
+                  <label for="address" class="col-md-4 control-label">Address</label>
+                    {{ Auth::user()->Address }}
               </div>
 
               <div class="form-group">
                   <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
+                    {{ Auth::user()->email }}
               </div>
 
               <div class="form-group">

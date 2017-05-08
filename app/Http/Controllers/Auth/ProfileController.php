@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -32,7 +33,6 @@ class ProfileController extends Controller
 
     public function index()
     {
-        Auth::user()->name;
-        return view('auth.profile');
+        
     }
 }
