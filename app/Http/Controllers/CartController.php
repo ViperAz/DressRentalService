@@ -37,8 +37,9 @@ class CartController extends Controller
 
     public function index()
     {
-        $data = DB::table('order_details')->get();
-        // $total = $data->price*$data->quantity;
+        $name = Auth::user()->name;
+        $user_id = DB::table('users')->where('name', $name)->value('id');
+        $data = DB::table('order_details')->where('id', $user_id)->get();
         return view('cart',['data' => $data]);
     }
 }

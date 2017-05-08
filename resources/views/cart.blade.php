@@ -32,16 +32,16 @@
 								<p>Product ID: {{ $a->rental_product_id }}</p>
 							</td>
 							<td class="cart_price">
-								<p>{{ $a->price }}</p>
+								<p id="cart_price">{{ $a->price }}</p>
 							</td>
                             <td class="cart_quantity">
-								<p>{{ $a->quantity }}</p>
+								<p id="cart_qty">{{ $a->quantity }}</p>
 							</td>
                             <td class="cart_day">
 								<p>{{ $a->return_date }}</p>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"></p>
+								<p id="cart_total_price"class="cart_total_price">{{ $a->price * $a->quantity }}</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>

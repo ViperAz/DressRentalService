@@ -32,6 +32,29 @@
 
               <div class="form-group">
                   <label for="history" class="col-md-4 control-label">Purchased History</label>
+                  <table>
+                    @foreach($history as $histories)
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Day</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+
+                    <tfoot>
+                      <tr>
+                        <th>{{ $histories->shopping_cart_id }}</th>
+                        <th>{{ $histories->price }}</th>
+                        <th>{{ $histories->quantity }}</th>
+                        <th>{{ $histories->return_date }}</th>
+                        <th>{{ $histories->price * $histories->quantity }}</th>
+                      </tr>
+                    </tfoot>
+                    @endforeach
+                  </table>
 
               </div>
         </div>

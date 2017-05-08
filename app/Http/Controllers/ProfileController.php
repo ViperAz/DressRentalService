@@ -37,6 +37,11 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile');
+        $id = Auth::user()->id;
+        $cart_id = DB::table('shopping_carts')->where('user_id', $id)->value('id');
+        $data = DB::table('order_details')->where('shopping_cart_id', $cart_id)->value('shopping_cart_id');
+        $final_data = DB::table('order_details')->where('shopping_cart_id', $data)->value('is_complete');
+        $history = DB::table('order_details')->where('is_complete', $final_data)->get();
+        return view('profile', ['history' => $history]);
     }
 }
