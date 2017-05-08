@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Voucher extends Model
 {
-  protected $fillable = ['code','start_datetime','end_datetime','discounted_price'];
+    //
+    protected $fillable = ['code','start_date','end_date','discount_price'];
+    public $timestamps = false;
 }
