@@ -17,9 +17,9 @@
                                 @else
 
 
-  								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-  								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-  								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+  								{{-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+  								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> --}}
+  								<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 
      <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -28,7 +28,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="#"
+                                        <a href="/profile"
                                             onclick="">
                                             Profile
                                         </a>

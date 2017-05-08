@@ -35,7 +35,7 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public static function index()
     {
         $id = Auth::user()->id;
         $cart_id = DB::table('shopping_carts')->where('user_id', $id)->value('id');
