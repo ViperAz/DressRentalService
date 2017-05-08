@@ -72,47 +72,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-      <div class="left-sidebar">
-        <h2>category</h2>
-        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-            
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a href="#">Fashion</a></h4>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a href="#">Households</a></h4>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a href="#">Interiors</a></h4>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a href="#">Clothing</a></h4>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a href="#">Bags</a></h4>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title"><a href="#">Shoes</a></h4>
-            </div>
-          </div>
-        </div><!--/category-products-->
-
+      
       </div>
     </div>
 
-    <div class="col-sm-9 padding-right">
+    <div class="col-sm-12 padding-right">
       <div class="features_items"><!--features_items-->
         <h2 class="title text-center">Promotions</h2>
           @foreach($promotions as $p)
@@ -314,11 +278,13 @@
                                 <h4 id="product_name" class="modal-title">#ชื่อสินค้า</h4>
                               </div>
                             <div class="modal-body">
-                              <div class="col-sm-6">
+<!--
+                              <div class="col-sm-12">
                                 <div class="content">
-                                <h3>Image</h3>
+                                <h3><img id="product_img" src="#"></h3>
                                 </div>
                               </div>
+-->
                             <div class="col-sm-6">
                               <div class="content">
                                 <h2 id="product_id" name="product_id">Product ID :1089772</h2>
@@ -327,52 +293,17 @@
                                 Quantity:
                                 </div>
                                 <div class="col-sm-6" >
-                                  <div class="col-xs-1">
-                                  <input id="product_qty" name="product_qty"type="text" onchange="calTotalPrice()" value="1"  >
+                                                    <div id=field1>
+                                    <button type="button" id="sub" class=sub> - </button>
+                                    <input name="product_qty" id="product_qty"class="cart_quantity_input" type="text" id="1"  size="2" value="1">
+                                    <button type="button" id="add" class=add> + </button>
                                   </div>
                                 </div>
                                 <div class="col-sm-6">
                                 Rent(Days):
                                 </div>
                                 <div id="rent_day" class="col-sm-6">
-<!--
-                                <select>
-                                    <optgroup label="Quantity">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
 
-                                  </optgroup>
-                                </select>
--->
                               </div>
                               <br>
 
@@ -383,19 +314,12 @@
 
                 <div class="modal-footer">
 
-                  <div class="text-right pull-right col-md-4">
+                  <div class="text-right pull-right col-md-6">
                       ราคาทั้งหมด <br/>
-                      <input id="total_price" name="total_price"type="text"  value="0"  >
+                      <input id="total_price" name="total_price"type="text" size="5" value="0"  readonly >
                   </div>
 
-                  <div class="text-right pull-right col-md-4">
-                      จำนวนสิ้นค้า <br/>
-                      <span class="h3 text-muted"><strong></strong></span>
-                  </div>
-                  <div class="text-right pull-right col-md-4">
-                      จำนวนวันที่ยืม <br/>
-                      <span class="h3 text-muted"><strong></strong></span>
-                  </div>
+ 
 
 
               </div>
@@ -448,11 +372,13 @@
             if(id == '{{$a->id}}')
                 {
 //                   alert("Hiii"+'{{$a->id}}');
+                    var pic = document.getElementById('product_img');
+//                    
                     $('#product_id').text("Product ID: "+'{{$a->id}}');
                     $('#product_name').text('{{$a->name}}');
 
 //                    $('#product_desc').text('{{$a->desc}}');
-                    var html = '<select name="selector" id="selector" onchange="calTotalPrice()"><optgroup label="Quantity" >';
+                    var html = '<select name="selector" id="selector"  onchange="calTotalPrice()"><optgroup label="Quantity" >';
                     @foreach($rental as $r)
                     if(id == '{{$r->product_id}}' && array[{{$r->id}}] > 0){
 //                        alert('aa')
@@ -466,6 +392,9 @@
                     $('#rent_day').html(html);
                 }
         @endforeach
+          $('#total_price').val(parseInt(($("#selector option:selected").text()).substring(10))*$('#product_qty').val());
+//        $('#total_price').val($('select[name=selector]').val()*$('#product_qty').val());
+        $('#product_price').text(($("#selector option:selected").text()).substring(10));
     }
 //    function showPromotionDetail(id)
 //    {
@@ -489,6 +418,44 @@
 //                }
 //        @endforeach  
 //    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+var unit = 0;
+var total;
+// if user changes value in field
+$('.field').change(function() {
+  unit = this.value;
+});
+$('.add').click(function() {
+  if(unit==20){
+
+  }else{
+  unit++;
+  var $input = $(this).prevUntil('.sub');
+  $input.val(unit);
+  unit = unit;
+        $('#total_price').val(parseInt(($("#selector option:selected").text()).substring(10))*$('#product_qty').val());
+//        $('#total_price').val($('select[name=selector]').val()*$('#product_qty').val());
+        $('#product_price').text(($("#selector option:selected").text()).substring(10));
+}
+});
+$('.sub').click(function() {
+  if (unit == 1){
+
+  }
+  else if (unit > 0) {
+    unit--;
+    var $input = $(this).nextUntil('.add');
+    $input.val(unit);
+        $('#total_price').val(parseInt(($("#selector option:selected").text()).substring(10))*$('#product_qty').val());
+//        $('#total_price').val($('select[name=selector]').val()*$('#product_qty').val());
+        $('#product_price').text(($("#selector option:selected").text()).substring(10));
+  }
+
+
+});
 </script>
 
 @endsection

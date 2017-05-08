@@ -60,6 +60,8 @@ class HomeController extends Controller
 //        $rental = DB::table('rental_product')->get();
 //        $id = 1;
         $item = DB::table('products')
+            ->join('product_images','products.id','=','product_images.product_id') 
+            ->select('products.*','product_images.img_url')
             ->get();
         $data = DB::table('products')
             ->join('rental_products','products.id','=','rental_products.product_id')
