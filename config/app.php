@@ -162,10 +162,14 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
+   
 
         /*
          * Package Service Providers...
          */
+        HttpOz\Roles\RolesServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
