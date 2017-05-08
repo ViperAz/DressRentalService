@@ -57,7 +57,33 @@
                             </div>
                             <br>
 
+                            <div class="control-group">
+                              <!-- item description -->
+                              <label class="control-label" for="one_day_price">1 day price</label>
+                              <div class="controls">
+                                <input type="text" id="one_day_price" name="one_day_price" placeholder="" class="form-control">
+                                <p class="help-block">item description</p>
+                              </div>
+                            </div>
 
+                            <div class="control-group">
+                              <!-- item description -->
+                              <label class="control-label" for="three_day_price">3 day price</label>
+                              <div class="controls">
+                                <input type="text" id="three_day_price" name="three_day_price" placeholder="" class="form-control">
+                                <p class="help-block">item description</p>
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <!-- item description -->
+                              <label class="control-label" for="five_day_price">5 day price</label>
+                              <div class="controls">
+                                <input type="text" id="five_day_price" name="five_day_price" placeholder="" class="form-control">
+                                <p class="help-block">item description</p>
+                              </div>
+                            </div>
+                            
                             <div class="control-group">
                               <!-- Button -->
                               <div class="controls">

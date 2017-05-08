@@ -66,17 +66,16 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Laravel
+                Admin Section
             </div>
 
             <div class="links">
-                <a href="">add Promotion</a>
-                <a href="">add voucher</a>
-                <a href="">Add item</a>
-                <a href="">check item</a>
-                <a href="">confirm item</a>
+                <a href="/add_promotion">add Promotion</a>
+                <a href="/add_voucher">add voucher</a>
+                <a href="/add_product">Add item</a>
 
             </div>
+
 
         </div>
 

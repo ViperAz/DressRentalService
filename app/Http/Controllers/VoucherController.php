@@ -47,6 +47,8 @@ class VoucherController extends Controller
       $data = array('code'=>$code,'discount_price'=>$discount_price,'start_date'=>$start_date,'end_date'=>$end_date);
 
       DB::table('vouchers')->insert($data);
+
+      return view('admin_main');
     }
 
     /**

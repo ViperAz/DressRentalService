@@ -54,6 +54,8 @@ class PromotionController extends Controller
 
         $data3 = array('rental_product_id'=>$rental_product_id,'day'=>'5','price'=>$five_day_price,'start_date'=>$start_date,'end_date'=>$end_date);
         DB::table('promotions')->insert($data3);
+
+        return view('admin_main');
     }
 
     /**
