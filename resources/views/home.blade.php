@@ -303,6 +303,7 @@
     <form class="" action="/addToCart" method="post">
          <!-- Modal -->
         <input type='hidden' name='_token' value="{{ csrf_token()}}">
+         <input type='hidden' id='h_id' name='rental_id' value="">
                         <div class="modal fade" id="myModal" role="dialog">
                           <div class="modal-dialog">
 
@@ -320,14 +321,14 @@
                               </div>
                             <div class="col-sm-6">
                               <div class="content">
-                                <h2 id="product_id">Product ID :1089772</h2>
-                                <h3 id="product_price">ราคา :#฿</h3>
+                                <h2 id="product_id" name="product_id">Product ID :1089772</h2>
+                                <h3 id="product_price" name="product_price" value="0">ราคา :#฿</h3>
                                 <div class="col-sm-6">
                                 Quantity:
                                 </div>
                                 <div class="col-sm-6" >
                                   <div class="col-xs-1">
-                                  <input id="product_qty"type="text" onchange="calTotalPrice()" value="1"  >
+                                  <input id="product_qty" name="product_qty"type="text" onchange="calTotalPrice()" value="1"  >
                                   </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -384,7 +385,7 @@
 
                   <div class="text-right pull-right col-md-4">
                       ราคาทั้งหมด <br/>
-                      <span id="total_price" class="h3 text-muted" id="total_price"><strong>฿</strong></span></span>
+                      <input id="total_price" name="total_price"type="text"  value="0"  >
                   </div>
 
                   <div class="text-right pull-right col-md-4">
@@ -412,15 +413,18 @@
 <script>
     var array=[]
             @foreach($promotions as $p)
-//            array.push('{{$p->rental_product}}')
-             array['{{$p->rental_product}}'] = '{{$p->price}}';
+//            array.push('{{$p->rental_product_id}}')
+             array['{{$p->rental_product_id}}'] = '{{$p->price}}';
 //            alert(array[0][1]+":"+array[1][1]);
         
         @endforeach
     function calTotalPrice()
     {
         
-        $('#total_price').text($('select[name=selector]').val()*$('#product_qty').val());
+        $('#total_price').val(parseInt(($("#selector option:selected").text()).substring(10))*$('#product_qty').val());
+//        $('#total_price').val($('select[name=selector]').val()*$('#product_qty').val());
+        $('#product_price').text(($("#selector option:selected").text()).substring(10));
+     
     }
     function checkPromotion(id)
     {
@@ -452,10 +456,10 @@
                     @foreach($rental as $r)
                     if(id == '{{$r->product_id}}' && array[{{$r->id}}] > 0){
 //                        alert('aa')
-                        html += '<option value="'+array[{{$r->id}}]+'">'+'{{$r->day}}'+'days :: ฿'+array[{{$r->id}}]+'</option>'
+                        html += '<option value="'+'{{$r->id}}'+'">'+'{{$r->day}}'+'days :: ฿'+array[{{$r->id}}]+'</option>'
                         }
                      else if (id == '{{$r->product_id}}'){
-                        html += '<option value="{{$r->price}}'+'">'+'{{$r->day}}'+'days :: ฿'+'{{$r->price}}'+'</option>'}
+                        html += '<option value="{{$r->id}}'+'">'+'{{$r->day}}'+'days :: ฿'+'{{$r->price}}'+'</option>'}
           
                     @endforeach
                     html += '</optgroup></select>';
