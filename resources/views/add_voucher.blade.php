@@ -9,20 +9,23 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                       <form class="form-horizontal" action='/voucher-create' method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <fieldset>
                             <div id="legend">
                               <legend class="">Add Promotion</legend>
                             </div>
 
                             <div class="control-group">
+                              {{ csrf_field() }}
                               <!-- E-mail -->
                               <label class="control-label" for="code">Voucher Code</label>
                               <div class="controls">
-                                <input type="text" id="code" name="code" placeholder="" class="input-xlarge">
+                                <input type="text" id="code" name="code" placeholder="" class="input-xlarge" >
                                 <p class="help-block"> Voucher Code </p>
                               </div>
                             </div>
 
+                            
                             <div class="control-group">
                               <!-- E-mail -->
                               <label class="control-label" for="discount_price">Discount price</label>
@@ -37,7 +40,6 @@
                               <label class="control-label" for="start_date">Start</label>
                               <div class="controls">
                                 <input type="date" id="voucherCode" name="start_date" placeholder="" class="input-xlarge">
-                                <input type="time" id="voucherCode" name="start_time" placeholder="" class="input-xlarge">
                                 <p class="help-block"> Voucher Code </p>
                               </div>
                             </div>
@@ -47,7 +49,6 @@
                               <label class="control-label" for="end_date">end</label>
                               <div class="controls">
                                 <input type="date" id="voucherCode" name="end_date" placeholder="" class="input-xlarge">
-                                <input type="time" id="voucherCode" name="end_time" placeholder="" class="input-xlarge">
                                 <p class="help-block"> Voucher Code </p>
                               </div>
                             </div>
@@ -82,10 +83,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-    // DateTime picker for Dates
-    $("#startDate").datetimepicker();
-    });
-</script>
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use DB;
 class VoucherController extends Controller
 {
     /**
@@ -36,10 +36,13 @@ class VoucherController extends Controller
     public function store(Request $request)
     {
       //['code','start_datetime','end_datetime','discounted_price'];
-      $code= $request->input('code');
-      $discount_price->input('discount_price');
-      $start_date= $request->input('start_date');
-      $end_date= $request->input('end_date');
+      $code = $request->input('code');
+      $discount_price = $request->input('discount_price');
+      $start = $request->input('start_date');
+      $end = $request->input('end_date');
+
+      $start_date = Carbon::createFromFormat('Y-m-d H', $start.' 0')->toDateTimeString();
+      $end_date = Carbon::createFromFormat('Y-m-d H', $end.' 0')->toDateTimeString();
 
       $data = array('code'=>$code,'discount_price'=>$discount_price,'start_date'=>$start_date,'end_date'=>$end_date);
 

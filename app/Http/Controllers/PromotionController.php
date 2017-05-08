@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use DB;
 
-class RentalProductController extends Controller
+class PromotionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,21 +36,24 @@ class RentalProductController extends Controller
      */
     public function store(Request $request)
     {
-      $product_id= $request->input('product_id');
-      $one_day_price= $request->input('one_day_price');
-      $three_day_price= $request->input('three_day_price');
-      $five_day_price= $request->input('five_day_price');
+        $rental_product_id = $request->input('rental_product_id');
+        $one_day_price= $request->input('one_day_price');
+        $three_day_price= $request->input('three_day_price');
+        $five_day_price= $request->input('five_day_price');
+        $start = $request->input('start_date');
+        $end = $request->input('end_date');
 
-      $data = array('product_id'=>$product_id,'day'=>'1','price'=>$one_day_price);
-      DB::table('rental_products')->insert($data);
+        $start_date = Carbon::createFromFormat('Y-m-d H', $start.' 0')->toDateTimeString();
+        $end_date = Carbon::createFromFormat('Y-m-d H', $end.' 0')->toDateTimeString();
 
-      $data2 = array('product_id'=>$product_id,'day'=>'3','price'=>$three_day_price);
-      DB::table('rental_products')->insert($data2);
+        $data = array('rental_product_id'=>$rental_product_id,'day'=>'1','price'=>$one_day_price,'start_date'=>$start_date,'end_date'=>$end_date);
+        DB::table('promotions')->insert($data);
 
-      $data3 = array('product_id'=>$product_id,'day'=>'5','price'=>$five_day_price);
-      DB::table('rental_products')->insert($data3);
+        $data2 = array('rental_product_id'=>$rental_product_id,'day'=>'3','price'=>$three_day_price,'start_date'=>$start_date,'end_date'=>$end_date);
+        DB::table('promotions')->insert($data2);
 
-      return view('admin_main');
+        $data3 = array('rental_product_id'=>$rental_product_id,'day'=>'5','price'=>$five_day_price,'start_date'=>$start_date,'end_date'=>$end_date);
+        DB::table('promotions')->insert($data3);
     }
 
     /**

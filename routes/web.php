@@ -47,4 +47,5 @@ Route::post('/voucher-create', 'VoucherController@store');
 Route::get('/add_promotion', function () {
     return view('add_promotion');
 });
+Route::post('/promotion-create', 'PromotionController@store');
 // [][][]---------- Korn part end -----------------------[][][]
