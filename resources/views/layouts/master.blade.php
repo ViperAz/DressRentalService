@@ -17,20 +17,20 @@
     <link rel="stylesheet" href="{{asset('css/animate.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/main.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}"/>
-
-
-
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 
 
 
 </head>
 <body>
-  
+
 @include('layouts._navbar')
 @yield('content')
-<footer id="footer"><!--Footer-->
-  <div class="footer-top">
+
+  <!-- <div class="footer-top">
     <div class="container">
       <div class="row">
         <div class="col-sm-2">
@@ -174,18 +174,19 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-        <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+  <footer id="footer"><!--Footer-->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+          <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+        </div>
       </div>
     </div>
-  </div>
 
-</footer><!--/Footer-->
+  </footer><!--/Footer-->
 
 <!--<script src="{{asset('js/vendor/jquery.js')}}"></script>-->
 <script src="{{asset('/js/jquery.js')}}"></script>

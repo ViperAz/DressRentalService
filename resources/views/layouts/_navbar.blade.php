@@ -6,14 +6,13 @@
   						<div class="logo pull-left">
   							<a href="{{ url('/') }}"><img src="img/logo.png" alt="" /></a>
   						</div>
-
   					</div>
   					<div class="col-sm-8">
   						<div class="shop-menu pull-right">
   							<ul class="nav navbar-nav">
                                 @if (Auth::guest())
                                 	<li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Login</a></li>
-                                <li><a href="{{ route('register') }}"><i class="fa fa-lock"></i> Register</a></li>
+                                <li><a href="{{ route('register') }}"><i class="glyphicon glyphicon-user"></i> Register</a></li>
                                 @else
 
 
