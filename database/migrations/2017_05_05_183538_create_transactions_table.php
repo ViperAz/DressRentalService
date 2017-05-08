@@ -26,8 +26,8 @@ class CreateTransactionsTable extends Migration
             
 
             $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users');
+                  ->references('user_id')
+                  ->on('shopping_carts');
             $table->foreign('order_detail_id')
                   ->references('id')
                   ->on('order_details');
@@ -45,5 +45,8 @@ class CreateTransactionsTable extends Migration
     public function down()
     {
         //
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('transactions');
+        Schema::enableForeignKeyConstraints();
     }
 }

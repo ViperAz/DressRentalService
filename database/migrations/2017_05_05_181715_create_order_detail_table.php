@@ -24,7 +24,17 @@ class CreateOrderDetailTable extends Migration
             $table->dateTime('return_date');
             $table->boolean('is_complete');
             $table->timestamps();
+
+
+            $table->foreign('shopping_cart_id')
+                  ->references('id')
+                  ->on('shopping_carts');
+
+            $table->foreign('rental_product_id')
+                  ->references('id')
+                  ->on('rental_products');
             
+
 
             // $table->timestamps();
         });

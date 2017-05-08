@@ -14,7 +14,7 @@ class CreateProductImgTable extends Migration
     public function up()
     {
         //
-        Schema::create('products_img', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('img_url');
             $table->integer('product_id')->unsigned();
@@ -35,7 +35,7 @@ class CreateProductImgTable extends Migration
     {
         //
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('products_img');
+        Schema::dropIfExists('product_images');
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -8,8 +8,8 @@ class ProductImage extends Model
 {
     //
     protected $fillable = ['img_url'];
-
+    public $timestamps = false;
     public function product(){
-        return this->belongsTo('App\Category');
+        return  $this->belongsTo('App\Product');
     }
 }
