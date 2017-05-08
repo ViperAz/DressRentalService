@@ -115,22 +115,22 @@
     <div class="col-sm-9 padding-right">
       <div class="features_items"><!--features_items-->
         <h2 class="title text-center">Promotions</h2>
-          @foreach($data as $a)
+          @foreach($promotions as $p)
         <form class="" action="HomeController.php" method="post">
         <div class="col-sm-4">
           <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
-                  <img src="{{$a->img_url}}" alt="" />
-                  <h2>฿{{$a->price}}</h2>
-                  <p>{{$a->name}}</p>
+                  <img src="{{$p->img_url}}" alt="" />
+                  <h2>฿{{$p->price}} for {{$p->day}} Days</h2>
+                  <p>{{$p->name}}</p>
                   <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
                 </div>
                 <div class="product-overlay">
                   <div class="overlay-content">
-                    <h2>฿{{$a->price}}</h2>
-                    <p>{{$a->name}}</p>
-                    <a href="#" name="{{$a->id}}" onclick="test({{$a->id}})" class="btn btn-default add-to-cart" data-toggle="modal" data-target="#myModal" >
+                    <h2>฿{{$p->price}} for {{$p->day}} Days</h2>
+                    <p>{{$p->name}}</p>
+                    <a href="#" name="{{$p->id}}" onclick="showDetail({{$p->product_id}})" class="btn btn-default add-to-cart" data-toggle="modal" data-target="#myModal" >
                       <i class="fa fa-shopping-cart"></i>details</a>     
                   </div>
                 </div>
@@ -148,10 +148,10 @@
         <div class="col-sm-12">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#shirt" data-toggle="tab">Shirt</a></li>
-            <li><a href="#blazers" data-toggle="tab">Pants</a></li>
-            <li><a href="#sunglass" data-toggle="tab">Skirt</a></li>
-            <li><a href="#kids" data-toggle="tab">Dress</a></li>
-            <li><a href="#poloshirt" data-toggle="tab">Suit</a></li>
+            <li><a href="#pants" data-toggle="tab">Pants</a></li>
+            <li><a href="#skirt" data-toggle="tab">Skirt</a></li>
+            <li><a href="#dress" data-toggle="tab">Dress</a></li>
+            <li><a href="#suit" data-toggle="tab">Suit</a></li>
           </ul>
         </div>
         <div class="tab-content">
@@ -163,15 +163,15 @@
             <div class="single-products">
                 <div class="productinfo text-center">
                   <img src="{{$a->img_url}}" alt="" />
-                  <h2>฿{{$a->price}}</h2>
+                  <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
                   <p>{{$a->name}}</p>
                   <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
                 </div>
                 <div class="product-overlay">
                   <div class="overlay-content">
-                    <h2>฿{{$a->price}}</h2>
+                    <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
                     <p>{{$a->name}}</p>
-                    <a href="#" class="btn btn-default add-to-cart" onclick="test({{$a->id}})" data-toggle="modal" data-target="#myModal" >
+                    <a href="#" class="btn btn-default add-to-cart" onclick="showDetail({{$a->id}})" data-toggle="modal" data-target="#myModal" >
                       <i class="fa fa-shopping-cart"></i>details</a>     
                   </div>
                 </div>
@@ -183,24 +183,52 @@
 
           </div>
 
-          <div class="tab-pane fade" id="blazers" >
+          <div class="tab-pane fade" id="pants" >
 
-            @foreach($controller->show_category_by_id('2') as $a)
+            @foreach($controller->show_category_by_id(2) as $b)
+        <form class="" action="HomeController.php" method="post">
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                  <img src="{{$b->img_url}}" alt="" />
+                  <h2>฿{{$b->price}} for {{$b->day}} Days</h2>
+                  <p>{{$b->name}}</p>
+                  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
+                </div>
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h2>฿{{$b->price}} for {{$b->day}} Days</h2>
+                    <p>{{$b->name}}</p>
+                    <a href="#" class="btn btn-default add-to-cart" onclick="showDetail({{$b->id}})" data-toggle="modal" data-target="#myModal" >
+                      <i class="fa fa-shopping-cart"></i>details</a>     
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        </form>
+        @endforeach
+
+          </div>
+
+          <div class="tab-pane fade" id="skirt" >
+          @foreach($controller->show_category_by_id('3') as $a)
         <form class="" action="HomeController.php" method="post">
         <div class="col-sm-4">
           <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
                   <img src="{{$a->img_url}}" alt="" />
-                  <h2>฿{{$a->price}}</h2>
+                  <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
                   <p>{{$a->name}}</p>
                   <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
                 </div>
                 <div class="product-overlay">
                   <div class="overlay-content">
-                    <h2>฿{{$a->price}}</h2>
+                    <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
                     <p>{{$a->name}}</p>
-                    <a href="#" class="btn btn-default add-to-cart" onclick="test({{$a->id}})" data-toggle="modal" data-target="#myModal" >
+                    <a href="#" class="btn btn-default add-to-cart" onclick="showDetail({{$a->id}})" data-toggle="modal" data-target="#myModal" >
                       <i class="fa fa-shopping-cart"></i>details</a>     
                   </div>
                 </div>
@@ -209,172 +237,60 @@
         </div>
         </form>
         @endforeach
-
           </div>
 
-          <div class="tab-pane fade" id="sunglass" >
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery3.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
+          <div class="tab-pane fade" id="dress" >
+             @foreach($controller->show_category_by_id('4') as $a)
+        <form class="" action="HomeController.php" method="post">
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                  <img src="{{$a->img_url}}" alt="" />
+                  <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
+                  <p>{{$a->name}}</p>
+                  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery4.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
+                    <p>{{$a->name}}</p>
+                    <a href="#" class="btn btn-default add-to-cart" onclick="showDetail({{$a->id}})" data-toggle="modal" data-target="#myModal" >
+                      <i class="fa fa-shopping-cart"></i>details</a>     
                   </div>
-
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery1.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery2.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
             </div>
           </div>
-
-          <div class="tab-pane fade" id="kids" >
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery1.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery2.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery3.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery4.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+        </div>
+        </form>
+        @endforeach
           </div>
 
-          <div class="tab-pane fade" id="poloshirt" >
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery2.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
+          <div class="tab-pane fade" id="suit" >
+               @foreach($controller->show_category_by_id('5') as $a)
+        <form class="" action="HomeController.php" method="post">
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                  <img src="{{$a->img_url}}" alt="" />
+                  <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
+                  <p>{{$a->name}}</p>
+                  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery4.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
+                    <p>{{$a->name}}</p>
+                    <a href="#" class="btn btn-default add-to-cart" onclick="showDetail({{$a->id}})" data-toggle="modal" data-target="#myModal" >
+                      <i class="fa fa-shopping-cart"></i>details</a>     
                   </div>
-
                 </div>
-              </div>
             </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery3.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                  <div class="productinfo text-center">
-                    <img src="images/home/gallery1.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+        </form>
+        @endforeach
           </div>
         </div>
       </div><!--/category-tab-->
@@ -393,7 +309,7 @@
                             <div class="modal-content">
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 id="product_name"class="modal-title">#ชื่อสินค้า</h4>
+                                <h4 id="product_name" class="modal-title">#ชื่อสินค้า</h4>
                               </div>
                             <div class="modal-body">
                               <div class="col-sm-6">
@@ -403,20 +319,21 @@
                               </div>
                             <div class="col-sm-6">
                               <div class="content">
-                                <label id="product_id">Product ID :1089772</label>
-                                <h3>ราคา :#฿</h3>
+                                <h2 id="product_id">Product ID :1089772</h2>
+                                <h3 id="product_price">ราคา :#฿</h3>
                                 <div class="col-sm-6">
                                 Quantity:
                                 </div>
                                 <div class="col-sm-6" >
                                   <div class="col-xs-1">
-                                  <input type="text" value="#"  >
+                                  <input id="product_qty"type="text" onchange="calTotalPrice()" value="1"  >
                                   </div>
                                 </div>
                                 <div class="col-sm-6">
                                 Rent(Days):
                                 </div>
-                                <div class="col-sm-6">
+                                <div id="rent_day" class="col-sm-6">
+<!--
                                 <select>
                                     <optgroup label="Quantity">
                                     <option value="1">1</option>
@@ -453,6 +370,7 @@
 
                                   </optgroup>
                                 </select>
+-->
                               </div>
                               <br>
 
@@ -465,7 +383,7 @@
 
                   <div class="text-right pull-right col-md-4">
                       ราคาทั้งหมด <br/>
-                      <span class="h3 text-muted"><strong>฿</strong></span></span>
+                      <span id="total_price" class="h3 text-muted" id="total_price"><strong>฿</strong></span></span>
                   </div>
 
                   <div class="text-right pull-right col-md-4">
@@ -491,19 +409,81 @@
     </form>
 
 <script>
-    function test(id)
+    var array=[]
+            @foreach($promotions as $p)
+//            array.push('{{$p->rental_product}}')
+             array['{{$p->rental_product}}'] = '{{$p->price}}';
+//            alert(array[0][1]+":"+array[1][1]);
+        
+        @endforeach
+    function calTotalPrice()
     {
-        @foreach($data as $a)
-            alert("Hiii"+id+{{$a->id}});
-            if(id == {{$a->id}}+"")
+        
+        $('#total_price').text($('select[name=selector]').val()*$('#product_qty').val());
+    }
+    function checkPromotion(id)
+    {
+        var pro_price = 0;
+        @foreach($rental as $r)
+            if(id == '{{$r->product_id}}' && array[{{$r->id}}] > 0){
+                pro_price = array[{{$r->id}}];
+            }
+            else if(id == '{{$r->product_id}}' ){
+                pro_price = '{{$r->price}}';
+            }
+        @endforeach
+        return pro_price
+    }
+    function showDetail(id)
+    {
+       
+
+        @foreach($item as $a)
+           
+            if(id == '{{$a->id}}')
                 {
-                   
-                    $('#product_id').text({{$a->id}});
-                    $('#product_name').text({{$a->price}});
-                    
+//                   alert("Hiii"+'{{$a->id}}');
+                    $('#product_id').text("Product ID: "+'{{$a->id}}');
+                    $('#product_name').text('{{$a->name}}');
+
+//                    $('#product_desc').text('{{$a->desc}}');
+                    var html = '<select name="selector" id="selector" onchange="calTotalPrice()"><optgroup label="Quantity" >';
+                    @foreach($rental as $r)
+                    if(id == '{{$r->product_id}}' && array[{{$r->id}}] > 0){
+//                        alert('aa')
+                        html += '<option value="'+array[{{$r->id}}]+'">'+'{{$r->day}}'+'days :: ฿'+array[{{$r->id}}]+'</option>'
+                        }
+                     else if (id == '{{$r->product_id}}'){
+                        html += '<option value="'+'{{$r->price}}'+'">'+'{{$r->day}}'+'days :: ฿'+'{{$r->price}}'+'</option>'}
+          
+                    @endforeach
+                    html += '</optgroup></select>';
+                    $('#rent_day').html(html);
                 }
         @endforeach
     }
+//    function showPromotionDetail(id)
+//    {
+//      @foreach($promotions as $p)
+////            alert("Hiii"+id+{{$a->id}});
+//            if(id == {{$p->id}}+"")
+//                {
+//                   
+//                    $('#product_id').text("Product ID: "+'{{$p->id}}');
+//                    $('#product_name').text('{{$p->name}}');
+//                    $('#product_price').text('ราคา : ฿'+'{{$p->price}}');
+////                    $('#product_desc').text('{{$p->desc}}');
+//                    var html = '<select><optgroup label="Quantity">';
+//                    @foreach($rental as $r)
+//                        if(id == '{{$r->product_id}}')
+//                        html += '<option value="'+'{{$r->price}}'+'">'+'{{$r->day}}'+'days :: ฿'+'{{$r->price}}'+'</option>'
+//                    @endforeach
+//                    html += '</optgroup></select>';
+//                    $('#rent_day').html(html);
+//                    
+//                }
+//        @endforeach  
+//    }
 </script>
 
 @endsection

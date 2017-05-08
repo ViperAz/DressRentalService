@@ -42,28 +42,50 @@ class HomeController extends Controller
                              'controller' => $this
                             ]);
     }
-    public function show_category_by_id($id){
+     public function show_category_by_id($id){
         $product = DB::table('products')
             ->join('rental_products','products.id','=','rental_products.product_id')
             ->join('products_img','products.id','=','products_img.product_id') 
-            ->select('products.*', 'rental_products.price','products_img.img_url')
-            ->where('category_id', '=' ,$id)
+            ->select('products.*', 'rental_products.price','rental_products.day','products_img.img_url')
+            ->where('products.category_id', '=' ,$id)
+            //show only product for 3 days
+            ->where('rental_products.day', '=' ,'3')
             ->get();
             return $product; 
     }
     public function show()
     {
 //        $rental = DB::table('rental_product')->get();
-        $product = DB::table('products')
+//        $id = 1;
+        $item = DB::table('products')
+//            ->join('rental_products','products.id','=','rental_products.product_id') 
+//            ->select('products.*', 'rental_products.price','rental_products.day','products_img.img_url')
+//            ->where('rental_products.day', '=' ,'3')
+            ->get();
+        $data = DB::table('products')
             ->join('rental_products','products.id','=','rental_products.product_id')
             ->join('products_img','products.id','=','products_img.product_id') 
-            ->select('products.*', 'rental_products.price','products_img.img_url')
-//            ->where('products.id', '=' ,$id)
+            ->select('products.*', 'rental_products.price','rental_products.day','products_img.img_url')
             ->get();
-        $rental = DB::table('rental_products')->get();
-//        $promotion = DB::table('promotion')->get();
-        return view('home', ['data' => $product,
+        
+//        $rental_promotion = DB::table('rental_products')
+//            ->join('promotions','rental_products.id','=','promotions.rental_product')
+//            ->select('promotions.*','rental_products.product_id')
+//            ->get();
+        $rental = DB::table('rental_products')
+            ->get();
+            
+        $promotions = DB::table('promotions')
+            ->join('rental_products','promotions.rental_product','=','rental_products.id')
+            ->join('products','rental_products.product_id','=','products.id')
+            ->join('products_img','products.id','=','products_img.product_id') 
+            ->select('promotions.*','products_img.img_url','rental_products.product_id','products.name','products.desc')
+            ->get();
+        return view('home', ['data' => $data,
                              'rental' => $rental,
+//                             'rental_promotion' => $rental_promotion,
+                             'item' => $item,
+                             'promotions' => $promotions,
                             'controller' => $this
                             ]);
     }
