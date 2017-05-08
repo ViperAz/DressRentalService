@@ -24,11 +24,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="date" class="col-md-4 control-label">Date of Birth</label>
+                        <div class="form-group">
+                            <label for="birthdate" class="col-md-4 control-label">Date of Birth</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="date" class="form-control" name="date" value="{{ old('name') }}" required autofocus>
+                                <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ old('birthdate') }}" required autofocus>
                             </div>
                         </div>
 
@@ -36,7 +36,7 @@
                             <label for="address" class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ old('name') }}" required autofocus>
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
                             </div>
                         </div>
 
