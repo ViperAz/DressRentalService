@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        $this->call(UserRolesSeeder::class);
+        $this->call(AddSampleUser::class);
+
         App\Voucher::create([
             'code' => 'TEST',
             'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00,'Asia/Bangkok'),
