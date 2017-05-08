@@ -3,18 +3,20 @@
 @section('title', 'edit product')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
                       <form class="form-horizontal" action='/product-edit' method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <fieldset>
                             <div id="legend">
                               <legend class="">Edit Product</legend>
                             </div>
-
                             <div class="control-group">
+
                               <label for="product_id">product name:</label>
                               <select class="selectpicker" name="product_id" id="product_id">
                                 @foreach($data as $d)
@@ -26,7 +28,7 @@
 
                             <div class="control-group">
                               <label for="category">Category:</label>
-                              <select class="selectpicker" name="category" id="category">
+                              <select class="selectpicker" name="category" id="category" >
                                 <option value="1">Shirt</option>
                                 <option value="2">Pant</option>
                                 <option value="3">Shorts</option>

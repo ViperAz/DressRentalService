@@ -72,8 +72,8 @@
             <div class="links">
                 <a href="/add_promotion">add Promotion</a>
                 <a href="/add_voucher">add voucher</a>
-                <a href="/add_product">Add item</a>
-
+                <a href="/add_product">Add Product</a>
+                <a href="/edit_product">Edit product</a>
             </div>
 
 

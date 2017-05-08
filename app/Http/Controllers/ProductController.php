@@ -48,7 +48,7 @@ class ProductController extends Controller
         $data = array('name'=>$name,'category_id'=>$category,'desc'=>$desc);
 
         DB::table('products')->insert($data);
-
+        // get product id from product that just build
         $product_id = DB::table('products')->where('name', $name)->value('id');
 
         $one_day_price= $request->input('one_day_price');
@@ -64,7 +64,7 @@ class ProductController extends Controller
         $data3 = array('product_id'=>$product_id,'day'=>'5','price'=>$five_day_price);
         DB::table('rental_products')->insert($data3);
 
-        // return view('admin_main');
+        return view('admin_main');
     }
 
     /**
@@ -98,7 +98,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product_id = $request->input('product_id');
+
+        $category = $request->input('category');
+        $desc = $request->input('desc');
+
+        $rental_product_id1 = DB::table('rental_products')->where([['product_id', '=', $product_id],['day','=','1']])->value('id');
+        $rental_product_id2 = DB::table('rental_products')->where([['product_id', '=', $product_id],['day','=','3']])->value('id');
+        $rental_product_id3 = DB::table('rental_products')->where([['product_id', '=', $product_id],['day','=','5']])->value('id');
+
+        $pd_name = DB::table('products')->where('id', $product_id)->value('name');
+        print
+        DB::table('products')->whereId($product_id)->update([['name' => $pd_name ],['category_id' => $category],['desc' => $desc]]);
+
+        return view('admin_main');
     }
 
     /**
