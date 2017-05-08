@@ -14,12 +14,19 @@
 //Route::get('/', function () {
 //    return view('home');
 //});
-
+Route::get('/home', 'HomeController@show');
 Route::get('/', 'HomeController@show');
 Auth::routes();
 
+
+Route::get('/addToCart','HomeController@show');
 Route::post('/addToCart','HomeController@addToCart');
 
 Route::get('/profile', 'ProfileController@index');
 
-Route::get('/cart', 'CartController@index');
+Route::get('/cart',[
+    'middleware' => 'group:default',
+    'uses' => 'CartController@index',
+]);
+
+

@@ -31,6 +31,18 @@
                                             onclick="">
                                             Profile
                                         </a>
+										@role('admin') 
+										<a href="/admin"
+                                            onclick="">
+                                            Manage Data 
+                                        </a>
+										@endrole
+										@role('employee') 
+										<a href="/employee"
+                                            onclick="">
+                                            Return Rental
+                                        </a>
+										@endrole
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
