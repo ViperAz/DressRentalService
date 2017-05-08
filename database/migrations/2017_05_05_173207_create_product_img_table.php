@@ -35,7 +35,7 @@ class CreateProductImgTable extends Migration
     {
         //
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('products_img');
+        Schema::dropIfExists('product_images');
         Schema::enableForeignKeyConstraints();
     }
 }

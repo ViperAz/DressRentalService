@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
 
         App\Voucher::create([
             'code' => 'TEST',
-            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00),
-            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00),
+            'start_date' =>Carbon::create(2017, 5, 8, 00, 00, 00,'Asia/Bangkok'),
+            'end_date' =>Carbon::create(2017,5, 17, 00, 00, 00,'Asia/Bangkok'),
             'discount_price'=> '20'
             ]);
             // print('test');

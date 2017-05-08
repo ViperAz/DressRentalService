@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVoucherTable extends Migration
+class CreateRentingItemTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,17 +14,22 @@ class CreateVoucherTable extends Migration
     public function up()
     {
         //
-
-        Schema::create('vouchers', function (Blueprint $table) {
+        Schema::create('renting_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->float('discount_price', 8, 2);
+            $table->integer('cart_detail_id')->unsigned();
             
 
             // $table->timestamps();
             
+
+            $table->foreign('cart_detail_id')
+                  ->references('id')
+                  ->on('order_details');
+        });
+
+        Schema::create('fine_rates', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('fine_rate')->default(50);
 
         });
     }
@@ -37,8 +42,10 @@ class CreateVoucherTable extends Migration
     public function down()
     {
         //
+
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('vouchers');
+        Schema::dropIfExists('renting_items');
+        Schema::dropIfExists('fine_rates');
         Schema::enableForeignKeyConstraints();
     }
 }
