@@ -50,16 +50,19 @@ class ProductController extends Controller
         DB::table('products')->insert($data);
         // get product id from product that just build
         $product_id = DB::table('products')->where('name', $name)->value('id');
+        // add file section
+        $file = $request->file('promo-path');
+        $path = 'Img/';
+        $filename = $file->getClientOriginalName();
+        $file->move(base_path('/public/img/'),$file->getClientOriginalName());
 
-        if ($request->file('fileToUpload')->isValid()) {
-          		$file = $request->file('fileToUpload');
-          		//Display File Name
-            		$destinationPath = 'img/massager';
-            		$file->move($destinationPath,$file->getClientOriginalName());
-            		DB::table('massagist')->insert(
-          		['name' => $request->input('fname')." ".$request->input('lname'), 'imgpath' => $destinationPath."/".$file->getClientOriginalName()]
-      			);
-      		}
+        $img_data = array('img_url'=>$path.$filename,'product_id'=>$product_id);
+        DB::table('product_images')->insert($img_data);
+
+            // DB::table('product_images')
+            //       ->where('image_url', $request->input('promo'))
+            //       ->update(array('path' => $filename));
+        // end add file section
         $one_day_price= $request->input('one_day_price');
         $three_day_price= $request->input('three_day_price');
         $five_day_price= $request->input('five_day_price');
