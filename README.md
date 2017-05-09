@@ -63,7 +63,7 @@ Code Voucher : TEST สำหรับการลดยี่สิบบาท
 
 1.นาย คณุตม์ เศรษฐเสถียร 5610400503
  
-รับผิดชอบ : ออกแบบ database ทำ data seeder ,page permission , autherlization , forgot password (smtp), debugger
+รับผิดชอบ : ออกแบบ database ทำ data seeder ,page permission , autherlization , forgot password (smtp), debugger ,merge and solve conflict git 
 
 2.นายธีรวัต มณีสม 5710450260
 
