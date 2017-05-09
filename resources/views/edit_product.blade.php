@@ -49,17 +49,6 @@
                             </div>
 
                             <div class="control-group">
-                              <label class="control-label">Select Image File</label>
-                              <input id="input-4" name="input4[]" type="file" multiple class="file-loading" accept="image/*">
-                              <script>
-                              $(document).on('ready', function() {
-                                  $("#input-4").fileinput({showCaption: false});
-                              });
-                              </script>
-                            </div>
-                            <br>
-
-                            <div class="control-group">
                               <!-- item description -->
                               <label class="control-label" for="one_day_price">1 day price</label>
                               <div class="controls">

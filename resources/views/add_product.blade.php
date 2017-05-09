@@ -8,7 +8,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                      <form class="form-horizontal" action='/product-create' method="post">
+                      <form class="form-horizontal" action='/product-create' method="post" enctype="multipart/form-data">
                         <fieldset>
                             <div id="legend">
                               <legend class="">Add Product</legend>
@@ -46,15 +46,7 @@
                               </div>
                             </div>
 
-                            <div class="control-group">
-                              <label class="control-label">Select Image File</label>
-                              <input id="fileToUpload" name="fileToUpload" type="file" multiple class="file-loading" accept="image/*">
-                              <script>
-                              $(document).on('ready', function() {
-                                  $("#input-4").fileinput({showCaption: false});
-                              });
-                              </script>
-                            </div>
+                            <h5 style="text-align: left;">Product image: <input class="new-promo" value="Upload Promotion" type="file" id="promo-path" name="promo-path" required></h5>
                             <br>
 
                             <div class="control-group">
