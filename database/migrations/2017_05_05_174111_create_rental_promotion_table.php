@@ -17,7 +17,6 @@ class CreateRentalPromotionTable extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('rental_product_id')->unsigned();
-            $table->integer('day')->unsigned();
             $table->float('price', 8, 2);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
