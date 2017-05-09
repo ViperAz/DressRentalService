@@ -132,14 +132,14 @@ class HomeController extends Controller
             ->join('product_images','products.id','=','product_images.product_id') 
             ->select('promotions.*','product_images.img_url','rental_products.product_id','products.name','products.desc')
             ->get();
-        
-        return view('home', ['data' => $data,
-                             'rental' => $rental,
-//                             'rental_promotion' => $rental_promotion,
-                             'item' => $item,
-                             'promotions' => $promotions,
-                            'controller' => $this
-                            ]);
+             return redirect('home/');
+//         return view('home', ['data' => $data,
+//                              'rental' => $rental,
+// //                             'rental_promotion' => $rental_promotion,
+//                              'item' => $item,
+//                              'promotions' => $promotions,
+//                             'controller' => $this
+//                             ]);
         
     }
 }

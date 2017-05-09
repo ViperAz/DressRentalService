@@ -87,5 +87,6 @@ class CartController extends Controller
                                  );
             DB::table('transactions')->insert($dataToInsert);
         }
+        return redirect('home/');
     }
 }
