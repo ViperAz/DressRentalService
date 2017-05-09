@@ -23,3 +23,5 @@ Route::post('/addToCart','HomeController@addToCart');
 Route::get('/profile', 'ProfileController@index');
 
 Route::get('/cart', 'CartController@index');
+
+Route::post('/addTransaction','CartController@addTransaction');
