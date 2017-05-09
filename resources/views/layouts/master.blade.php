@@ -201,6 +201,5 @@
 <script type="text/javascript">
     Stripe.setPublishableKey('pk_test_GryUHqXe48kgNc75J2BovmeN');
 </script>
-
 </body>
 </html>
