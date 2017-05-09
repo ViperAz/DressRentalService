@@ -51,6 +51,15 @@ class ProductController extends Controller
         // get product id from product that just build
         $product_id = DB::table('products')->where('name', $name)->value('id');
 
+        if ($request->file('fileToUpload')->isValid()) {
+          		$file = $request->file('fileToUpload');
+          		//Display File Name
+            		$destinationPath = 'img/massager';
+            		$file->move($destinationPath,$file->getClientOriginalName());
+            		DB::table('massagist')->insert(
+          		['name' => $request->input('fname')." ".$request->input('lname'), 'imgpath' => $destinationPath."/".$file->getClientOriginalName()]
+      			);
+      		}
         $one_day_price= $request->input('one_day_price');
         $three_day_price= $request->input('three_day_price');
         $five_day_price= $request->input('five_day_price');
@@ -96,12 +105,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $product_id = $request->input('product_id');
-
         $category = $request->input('category');
         $desc = $request->input('desc');
+
+        $one_day_price= $request->input('one_day_price');
+        $three_day_price= $request->input('three_day_price');
+        $five_day_price= $request->input('five_day_price');
 
         $rental_product_id1 = DB::table('rental_products')->where([['product_id', '=', $product_id],['day','=','1']])->value('id');
         $rental_product_id2 = DB::table('rental_products')->where([['product_id', '=', $product_id],['day','=','3']])->value('id');
@@ -109,8 +121,12 @@ class ProductController extends Controller
 
         $pd_name = DB::table('products')->where('id', $product_id)->value('name');
         print
-        DB::table('products')->whereId($product_id)->update([['name' => $pd_name ],['category_id' => $category],['desc' => $desc]]);
+        DB::table('products')->whereId($product_id)->update(['category_id' => $category]);
+        DB::table('products')->whereId($product_id)->update(['desc' => $desc]);
 
+        DB::table('rental_products')->whereId($rental_product_id1)->update(['price' => $one_day_price]);
+        DB::table('rental_products')->whereId($rental_product_id2)->update(['price' => $three_day_price]);
+        DB::table('rental_products')->whereId($rental_product_id3)->update(['price' => $five_day_price]);
         return view('admin_main');
     }
 

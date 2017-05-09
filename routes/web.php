@@ -50,7 +50,7 @@ Route::post('/promotion-create', 'PromotionController@store');
 //-------------------edit product page
 Route::get('/edit_product','ProductController@index');
 
-Route::post('/product-edit', 'ProductController@store');
+Route::post('/product_edit', 'ProductController@update');
 
 
 

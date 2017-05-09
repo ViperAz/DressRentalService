@@ -9,7 +9,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                      <form class="form-horizontal" action='/product-edit' method="post">
+                      <form class="form-horizontal" action='/product_edit' method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <fieldset>
                             <div id="legend">
@@ -89,7 +89,7 @@
                             <div class="control-group">
                               <!-- Button -->
                               <div class="controls">
-                                <button class="btn btn-success" type="submit" name="submit" value="Add">Add Item</button>
+                                <button class="btn btn-success" type="submit" name="submit" value="Add">Edit Product</button>
                               </div>
                             </div>
                           </fieldset>
