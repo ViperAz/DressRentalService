@@ -32,7 +32,7 @@
                                             Profile
                                         </a>
 										@role('admin') 
-										<a href="/admin"
+										<a href="/admain"
                                             onclick="">
                                             Manage Data 
                                         </a>
