@@ -21,8 +21,11 @@ MAIL_PORT=587
 MAIL_USERNAME=infatuated01@gmail.com
 
 MAIL_PASSWORD=mailpwd**
+
 MAIL_ENCRYPTION=tls
+
 **รหัสนี้จะส่งให้ผ่าน google drive url เพื่อความปลอดภัย
+
 เพื่อ set up bullet mail ไว้สำหรับการยิง forgot passward section
 
 DB_DATABASE=dressrental**
