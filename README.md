@@ -13,16 +13,23 @@ Installation
 
 
 MAIL_DRIVER=smtp
+
 MAIL_HOST=smtp.gmail.com
+
 MAIL_PORT=587
+
 MAIL_USERNAME=infatuated01@gmail.com
+
 MAIL_PASSWORD=ypclkdggdvrquhru
+
 MAIL_ENCRYPTION=tls
 
 เพื่อ set up bullet mail ไว้สำหรับการยิง forgot passward section
 
 DB_DATABASE=dressrental**
+
 DB_USERNAME=root
+
 DB_PASSWORD=
 
 **ให้สร้าง db ผ่านตัว xampp / laragon โดย ตั้งชื่อ database ให้ตรงกับ DB_DATABASE
@@ -34,14 +41,17 @@ DB_PASSWORD=
 หลังจากทำการ seeder เสร็จแล้ว ก็จะได้ข้อมูลสินค้า และ user ที่มีทั้งหมดมา โดย user มีดังนี้
 1. Admin
 email : infatuated01@github.com 
+
 password : password
 
 2. Employee
 email : infatuated02@github.com 
+
 password : password
 
 3. Admin
 email : infatuated03@github.com 
+
 password : password
 
 Code Voucher : TEST สำหรับการลดยี่สิบบาท
@@ -53,13 +63,22 @@ Code Voucher : TEST สำหรับการลดยี่สิบบาท
 รายระเอียดการแบ่งงาน
 
 1.นาย คณุตม์ เศรษฐเสถียร 5610400503
- รับผิดชอบ : ออกแบบ database ทำ data seeder ,page permission , autherlization , forgot password (smtp), debugger
+ 
+รับผิดชอบ : ออกแบบ database ทำ data seeder ,page permission , autherlization , forgot password (smtp), debugger
+
 2.นายธีรวัต มณีสม 5710450260
+
 รับผิดชอบ : ออกแบบ css , ตัดต่อรูปภาพ , รับผิดชอบหน้า home(front-end and some backend),หน้า Checkout (front-end)
+
 3.นายวีระศักดิ์ มาลัยทอง 5710404641
+
 รับผิดชอบ : ทำหน้า login ทั้งหมด ,โชว์ข้อมูลส่วนตัว,โชว์ purchased history (frontend and backend) ,หน้า Checkout (Backend) 
+
 4.กรณ์ เคารพาพงศ์ 5710404209
+
 รับผิดชอบ: รับผิดชอบ หน้า Admin ทั้งหมด (ทั้งBackend และ Front end)
+
 5.ณัฐธยาน์ ธิติมลพรรณ 5710404357
+
 รับผิดชอบ หน้า Checkout Backend,รับผิดชอบหน้า home(Backend) , debugger
 
