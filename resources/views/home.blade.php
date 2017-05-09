@@ -113,6 +113,7 @@
           <ul class="nav nav-tabs">
             <li class="active"><a href="#shirt" data-toggle="tab">Shirt</a></li>
             <li><a href="#pants" data-toggle="tab">Pants</a></li>
+            <li><a href="#shorts" data-toggle="tab">Shorts</a></li>
             <li><a href="#skirt" data-toggle="tab">Skirt</a></li>
             <li><a href="#dress" data-toggle="tab">Dress</a></li>
             <li><a href="#suit" data-toggle="tab">Suit</a></li>
@@ -175,9 +176,34 @@
         @endforeach
 
           </div>
-
-          <div class="tab-pane fade" id="skirt" >
+            <div class="tab-pane fade" id="shorts" >
           @foreach($controller->show_category_by_id('3') as $a)
+        <form class="" action="HomeController.php" method="post">
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                  <img src="{{$a->img_url}}" alt="" />
+                  <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
+                  <p>{{$a->name}}</p>
+                  <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>details</a>
+                </div>
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h2>฿{{$a->price}} for {{$a->day}} Days</h2>
+                    <p>{{$a->name}}</p>
+                    <a href="#" class="btn btn-default add-to-cart" onclick="showDetail({{$a->id}})" data-toggle="modal" data-target="#myModal" >
+                      <i class="fa fa-shopping-cart"></i>details</a>     
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        </form>
+        @endforeach
+          </div>
+          <div class="tab-pane fade" id="skirt" >
+          @foreach($controller->show_category_by_id('4') as $a)
         <form class="" action="HomeController.php" method="post">
         <div class="col-sm-4">
           <div class="product-image-wrapper">
@@ -204,7 +230,7 @@
           </div>
 
           <div class="tab-pane fade" id="dress" >
-             @foreach($controller->show_category_by_id('4') as $a)
+             @foreach($controller->show_category_by_id('5') as $a)
         <form class="" action="HomeController.php" method="post">
         <div class="col-sm-4">
           <div class="product-image-wrapper">
@@ -231,7 +257,7 @@
           </div>
 
           <div class="tab-pane fade" id="suit" >
-               @foreach($controller->show_category_by_id('5') as $a)
+               @foreach($controller->show_category_by_id('6') as $a)
         <form class="" action="HomeController.php" method="post">
         <div class="col-sm-4">
           <div class="product-image-wrapper">

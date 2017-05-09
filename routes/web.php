@@ -128,4 +128,4 @@ Route::get('/cart',[
     'uses' => 'CartController@index',
 ]);
 
-
+Route::post('/addTransaction','CartController@addTransaction');
